@@ -6,7 +6,6 @@ git clone https://github.com/a1b0r/s4rusmgr.git
 cd s4rusmgr
 docker-compose up -d
 docker exec -it msql /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "p@Ssw0Rd" -i /usr/share/mssql/exp.sql
-docker exec -it s4usrmgr composer install
 ```
 ## Test
 [Swagger](https://app.swaggerhub.com/apis/a1b0r/s4rusmgr)
