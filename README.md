@@ -1,4 +1,6 @@
 # Slim 4 REST user management
+https://app.swaggerhub.com/apis/a1b0r/s4rusmgr
+
 ```
 git clone https://github.com/a1b0r/s4rusmgr.git
 cd s4rusmgr
