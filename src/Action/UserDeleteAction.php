@@ -44,12 +44,13 @@ final class UserDeleteAction
         $userId = (int)$args['id'];
 
         // Invoke the Domain (application service) with inputs and keep the result
-        $user = $this->userDeleter->deleteUser($userId);
+        $result = ($this->userDeleter->deleteUser($userId)==1)?
+        ['deleted user by id'=>$userId]:['failed to delete user by id'=> $userId];
 
 
 
         // Build the HTTP response
-        $response->getBody()->write((string)json_encode($user));
+        $response->getBody()->write((string)json_encode($result));
 
         return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
     }

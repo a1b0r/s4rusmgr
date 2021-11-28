@@ -44,14 +44,13 @@ final class UserReadAction
 
         $user = $this->userReader->getUserDetails($userId);
 
-        $result = [
+        $result = ($user->id == 0) ?  ["No user with id" => $userId] : [
             'id' => $user->id,
             'first_name' => $user->firstName,
             'last_name' => $user->lastName,
             'active' => ($user->active)?true:false,
         ];
-
-        $result = $user->id == 0 ?  ["No user with id" => $userId] : $result;
+        
         $response->getBody()->write((string)json_encode($result));
 
         return $response->withHeader('Content-Type', 'application/json')->withStatus(200);

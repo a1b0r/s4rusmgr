@@ -1,0 +1,190 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "defaultTitle",
+    "description": "defaultDescription",
+    "version": "0.1"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8080"
+    }
+  ],
+  "paths": {
+    "/users/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The user ID",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        },
+        "servers": [
+          {
+            "url": "http://127.0.0.1:8080"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Auto generated using Swagger Inspector",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The user ID",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        },
+        "servers": [
+          {
+            "url": "http://127.0.0.1:8080"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "http://127.0.0.1:8080"
+        }
+      ]
+    },
+    "/users": {
+      "get": {
+        "description": "Auto generated using Swagger Inspector",
+        "responses": {
+          "200": {
+            "description": "Auto generated using Swagger Inspector",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "0": {
+                    "value": "[{\"id\":\"2\",\"first_name\":\"Max\",\"last_name\":\"Mustermann\",\"active\":\"1\"},{\"id\":\"3\",\"first_name\":\"Maxi\",\"last_name\":\"Musterfrau\",\"active\":\"1\"}]"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "http://127.0.0.1:8080"
+          }
+        ]
+      },
+      "post": {
+        "description": "Create user(s)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/users_body"
+              },
+              "examples": {
+                "batch": {
+                  "value": "[{\r\n  \"first_name\":\"Max\",\r\n  \"last_name\":\"Max$\",\r\n  \"active\":0\r\n},{\"id\":4,\r\n  \"first_name\":\"Max$3\",\r\n  \"last_name\":\"Max$4\",\r\n  \"active\":0\r\n}]"
+                },
+                "single": {
+                  "value": "{\"id\":4,\r\n  \"first_name\":\"Max3\",\r\n  \"last_name\":\"Max4\",\r\n  \"active\":0\r\n}"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Created",
+            "content": {
+              "text/html; charset=UTF-8": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "0": {
+                    "value": "{4,5}"
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201"
+                },
+                "examples": {
+                  "0": {
+                    "value": "{\"id\":4}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "servers": [
+        {
+          "url": "http://127.0.0.1:8080"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "users_body": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "first_name": {
+            "type": "string"
+          },
+          "last_name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        }
+      },
+      "inline_response_201": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}

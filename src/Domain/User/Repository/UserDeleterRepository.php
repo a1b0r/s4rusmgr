@@ -43,10 +43,6 @@ class UserDeleterRepository
 
         $row = $statement->rowCount();
 
-        if (!$row) {
-            throw new DomainException(sprintf('User not found: %s', $userId));
-        }
-
         return $row;
     }
 }

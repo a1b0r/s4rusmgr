@@ -61,6 +61,6 @@ final class UserCreateAction
         
         $response->getBody()->write((string)json_encode($result));
 
-        return $response->withHeader('Content-Type', 'application/json')->withStatus(201);
+        return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
     }
 }
