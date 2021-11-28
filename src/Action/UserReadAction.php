@@ -40,13 +40,10 @@ final class UserReadAction
         ResponseInterface $response,
         array $args = []
     ): ResponseInterface {
-        // Collect input from the HTTP request
         $userId = (int)$args['id'];
 
-        // Invoke the Domain (application service) with inputs and keep the result
         $user = $this->userReader->getUserDetails($userId);
 
-        // Transform the result into the JSON representation
         $result = [
             'user_id' => $user->id,
             'first_name' => $user->firstName,
@@ -54,7 +51,7 @@ final class UserReadAction
             'active' => $user->active,
         ];
 
-        // Build the HTTP response
+        $result = $user->id == 0 ?  ["No user with id" => $userId] : $result;
         $response->getBody()->write((string)json_encode($result));
 
         return $response->withHeader('Content-Type', 'application/json')->withStatus(200);

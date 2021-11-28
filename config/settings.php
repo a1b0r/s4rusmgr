@@ -1,12 +1,12 @@
 <?php
 
 // Error reporting for development
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+// error_reporting(E_ALL);
+// ini_set('display_errors', '1');
 
 // Error reporting for production
-//error_reporting(0);
-//ini_set('display_errors', '0');
+error_reporting(0);
+ini_set('display_errors', '0');
 
 // Timezone
 date_default_timezone_set('Europe/Berlin');
