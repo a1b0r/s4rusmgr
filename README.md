@@ -8,7 +8,7 @@ docker-compose up -d
 docker exec -it msql /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "p@Ssw0Rd" -i /usr/share/mssql/exp.sql
 ```
 ## Test
-(Swagger)[https://app.swaggerhub.com/apis/a1b0r/s4rusmgr]
+[Swagger](https://app.swaggerhub.com/apis/a1b0r/s4rusmgr)
 ### [GET] All users
 ```PowerShell
 curl.exe -X 'GET' `
