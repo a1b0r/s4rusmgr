@@ -8,7 +8,6 @@ docker-compose up -d
 docker exec -it msql /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "p@Ssw0Rd" -i /usr/share/mssql/exp.sql
 ```
 ## Test
-[Swagger](https://app.swaggerhub.com/apis/a1b0r/s4rusmgr)
 ```PowerShell
 curl.exe -X 'GET' `
   'http://127.0.0.1:8080/users' `
