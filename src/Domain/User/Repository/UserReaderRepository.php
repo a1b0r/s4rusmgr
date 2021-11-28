@@ -40,7 +40,6 @@ class UserReaderRepository
         $sql = "SELECT id, first_name, last_name, active FROM users WHERE id = :id;";
         $statement = $this->connection->prepare($sql);
         $statement->execute(['id' => $userId]);
-
         $row = $statement->fetch();
         return (!$row)? [null] : $row;
     }
