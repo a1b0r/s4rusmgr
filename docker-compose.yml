@@ -20,7 +20,7 @@ services:
             context: .
             dockerfile: .dockerfile
         working_dir: /var/www
-        command: bash -c "composer install && php -S 0.0.0.0:8080 -t public"
+        command: php -S 0.0.0.0:8080 -t public
         container_name: s4usrmgr
         environment:
             docker: "true"
