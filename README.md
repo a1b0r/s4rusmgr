@@ -4,6 +4,7 @@
 ```PowerShell
 git clone https://github.com/a1b0r/s4rusmgr.git
 cd s4rusmgr
+composer install
 docker-compose up -d
 docker exec -it msql /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "p@Ssw0Rd" -i /usr/share/mssql/exp.sql
 ```
