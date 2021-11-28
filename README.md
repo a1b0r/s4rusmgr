@@ -8,7 +8,7 @@ docker-compose up -d
 docker exec -it msql /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "p@Ssw0Rd" -i /usr/share/mssql/exp.sql
 ```
 ## Test
-### [GET] Users
+### [GET] All users
 ```PowerShell
 curl.exe -X 'GET' `
   'http://127.0.0.1:8080/users' `
@@ -36,13 +36,13 @@ curl.exe -X 'POST' `
 ]
 "@
 ```
-### [GET] View user by id
+### [GET] User by id
 ```PowerShell
 curl.exe -X 'GET' `
   'http://127.0.0.1:8080/users/4' `
   -H 'accept: application/json'
 ```
-### [DELETE] Delete user by id
+### [DELETE] User by id
 ```PowerShell
 curl.exe -X 'DELETE' `
   'http://127.0.0.1:8080/users/3' `
