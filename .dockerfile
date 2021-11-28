@@ -21,3 +21,4 @@ RUN pecl install sqlsrv
 RUN pecl install pdo_sqlsrv
 RUN docker-php-ext-enable sqlsrv
 RUN docker-php-ext-enable pdo_sqlsrv
+RUN composer install
