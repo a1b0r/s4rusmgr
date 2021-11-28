@@ -1,0 +1,31 @@
+volumes:
+    sql:
+        driver: local
+    logs:
+        driver: local
+services:
+    db:
+        image: mcr.microsoft.com/mssql/server:latest
+        restart: always
+        container_name: msql
+        environment:
+            SA_PASSWORD: "p@Ssw0Rd"
+            ACCEPT_EULA: "Y"
+        ports:
+            - "1433:1433"
+        volumes:
+          - ./sql:/usr/share/mssql/
+    slim:
+        build: 
+            context: .
+            dockerfile: .dockerfile
+        working_dir: /var/www
+        command: php -S 0.0.0.0:8080 -t public
+        environment:
+            docker: "true"
+        ports:
+            - 8080:8080
+        volumes:
+            - .:/var/www
+            - logs:/var/www/logs
+
